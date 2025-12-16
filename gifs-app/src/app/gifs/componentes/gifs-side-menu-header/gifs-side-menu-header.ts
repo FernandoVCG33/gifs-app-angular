@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import {environment} from '@enviroments/environment';
 
 @Component({
   selector: 'gifs-gifs-side-menu-header',
@@ -7,5 +8,6 @@ import {RouterOutlet} from '@angular/router';
   templateUrl: './gifs-side-menu-header.html',
 })
 export class GifsSideMenuHeader {
+  envs=environment;
 
 }

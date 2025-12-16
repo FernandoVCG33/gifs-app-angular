@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 interface MenuOption{
   label:string;
@@ -9,7 +10,10 @@ interface MenuOption{
 
 @Component({
   selector: 'gifs-gifs-side-menu-options',
-  imports: [],
+  imports: [
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './gifs-side-menu-options.html',
   })
 export class GifsSideMenuOptions {
