@@ -1,10 +1,10 @@
-export interface Welcome {
-  data:       Datum[];
+export interface GiphyResponse{
+  data:       GiphyItem[];
   meta:       Meta;
   pagination: Pagination;
 }
 
-export interface Datum {
+export interface GiphyItem {
   type:                       Type;
   id:                         string;
   url:                        string;
@@ -99,11 +99,11 @@ export interface Pagination {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-  public static toWelcome(json: string): Welcome {
+  public static toWelcome(json: string): GiphyResponse {
     return cast(JSON.parse(json), r("Welcome"));
   }
 
-  public static welcomeToJson(value: Welcome): string {
+  public static welcomeToJson(value: GiphyResponse): string {
     return JSON.stringify(uncast(value, r("Welcome")), null, 2);
   }
 }

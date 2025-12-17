@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {GifList} from '../../componentes/list/gif-list/gif-list';
+import {GifService} from '../../services/gifs.service';
 
 
 const imageUrls: string[] = [
@@ -28,4 +29,5 @@ const imageUrls: string[] = [
 export default class TrendingPage {
   //decalrar en una nueva variable el array
     gifs = imageUrls;
+    gifsService= inject( GifService ) ;
 }
