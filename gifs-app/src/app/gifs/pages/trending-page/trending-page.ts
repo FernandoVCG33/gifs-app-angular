@@ -26,5 +26,6 @@ const imageUrls: string[] = [
   ]
 })
 export default class TrendingPage {
+  //decalrar en una nueva variable el array
     gifs = imageUrls;
 }
