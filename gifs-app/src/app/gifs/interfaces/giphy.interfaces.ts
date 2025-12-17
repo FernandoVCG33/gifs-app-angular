@@ -1,4 +1,4 @@
-export interface GiphyResponse{
+export interface GiphyResponse {
   data:       GiphyItem[];
   meta:       Meta;
   pagination: Pagination;
@@ -99,12 +99,12 @@ export interface Pagination {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-  public static toWelcome(json: string): GiphyResponse {
-    return cast(JSON.parse(json), r("Welcome"));
+  public static toGiphyResponse(json: string): GiphyResponse {
+    return cast(JSON.parse(json), r("GiphyResponse"));
   }
 
-  public static welcomeToJson(value: GiphyResponse): string {
-    return JSON.stringify(uncast(value, r("Welcome")), null, 2);
+  public static giphyResponseToJson(value: GiphyResponse): string {
+    return JSON.stringify(uncast(value, r("GiphyResponse")), null, 2);
   }
 }
 
@@ -261,7 +261,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-  "Welcome": o([
+  "GiphyResponse": o([
     { json: "data", js: "data", typ: a(r("Datum")) },
     { json: "meta", js: "meta", typ: r("Meta") },
     { json: "pagination", js: "pagination", typ: r("Pagination") },

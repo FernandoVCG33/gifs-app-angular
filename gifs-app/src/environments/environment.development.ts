@@ -3,6 +3,6 @@ export const environment = {
   companyName: 'Gifs',
   companyName2: 'Apps',
   companySlogan: 'Maneja tus gifs',
-  gifapiKey: 'k79TnT3veEwtAGKRIt72TaT7vskyhaEd',
+  gifApiKey: 'k79TnT3veEwtAGKRIt72TaT7vskyhaEd',
   giphyUrl:'https://api.giphy.com/v1',
 };

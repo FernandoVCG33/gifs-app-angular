@@ -1,5 +1,6 @@
 import {Component, input} from '@angular/core';
 import {GifListItem} from './gif-list-item/gif-list-item';
+import {Gif} from '../../../interfaces/gif.interface';
 
 @Component({
   selector: 'gif-gif-list',
@@ -10,6 +11,6 @@ import {GifListItem} from './gif-list-item/gif-list-item';
 })
 export class GifList {
   //Todo input string[];
-  gifs=input.required<string[]>();
+  gifs=input.required<Gif[]>();
   protected readonly GifListItem = GifListItem;
 }
