@@ -1,18 +1,21 @@
-import {inject, Injectable, signal} from '@angular/core';
+import {computed, inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@enviroments/environment.development';
 import type {GiphyResponse} from '../interfaces/giphy.interfaces';
 import {Gif} from '../interfaces/gif.interface';
 import {GifMapper} from '../mapper/gif.mapper';
-import {map, tap} from 'rxjs';
+import {map,tap} from 'rxjs';
 
 
 @Injectable({providedIn: 'root'})
-export class GifService {
+export  class GifService {
   private http=inject(HttpClient);
 
   trendingGifs=signal<Gif[]>([])
   trendingGifsLoandong=signal(true);
+  searcHistory= signal<Record<string, Gif[]>>({});
+  searcHistoryKeys=computed(()=> Object.keys(this.searcHistory()));
+
   constructor() {
     this.loadTrendingGifs();
     console.log(`servicio creado`)
@@ -43,7 +46,13 @@ export class GifService {
       },
     }).pipe(
       map(({data})  => data ),
-      map((items)  => GifMapper.mapGiphyItemsToGifArray(items))
+      map((items)  => GifMapper.mapGiphyItemsToGifArray(items)),
+      tap(items =>{ this.searcHistory.update((history) =>
+          ({
+            ...history,
+            [query.toLowerCase()]: items,
+        }));
+      })
     );
      // .subscribe((resp) =>{
      //   const gifsR = resp.data;

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, computed, inject, input} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
+import {GifService} from '../../services/gifs.service';
 
 interface MenuOption{
   label:string;
@@ -31,4 +32,16 @@ export class GifsSideMenuOptions {
         route:'/dashboard/search',
       }
     ];
+    menuOptions1: MenuOption[]=[
+      {
+        label:'Historial',
+        icon:'da',
+        subLabel:'busqueda',
+        route:'/dashboard/historial',
+      }
+    ];
+
+    gifService= inject(GifService);
+
+    protected readonly history = history;
 }
