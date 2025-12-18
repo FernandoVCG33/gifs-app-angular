@@ -32,7 +32,7 @@ export  class GifService {
 
   constructor() {
     this.loadTrendingGifs();
-    console.log(`servicio creado`)
+    //console.log(`servicio creado`)
 
   }
   saveGifsLocalStorage=effect(() =>{
@@ -54,7 +54,7 @@ export  class GifService {
         this.trendingGifs.set(gifs);
         this.trendingGifsLoandong.set(false);
         console.log(`gifs cargados desde api`);
-        console.log( {gifs} );
+        //console.log( {gifs} );
     } )
   }
   searchGifs(query: string):Observable<Gif[]> {
