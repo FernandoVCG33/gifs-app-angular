@@ -20,6 +20,14 @@ export  class GifService {
   trendingGifs=signal<Gif[]>([])
   trendingGifsLoandong=signal(true);
   searcHistory= signal<Record<string, Gif[]>>(loadFromLS());
+  trendingGifGroup=computed<Gif[][]>(()=>{
+      const groups=[];
+      for (let i=0 ; i<this.trendingGifs().length; i+=3 ){
+        groups.push(this.trendingGifs().slice(i,i+3));
+      }
+      return groups;
+  });
+
   searcHistoryKeys=computed(()=> Object.keys(this.searcHistory()));
 
   constructor() {
@@ -50,9 +58,9 @@ export  class GifService {
     } )
   }
   searchGifs(query: string):Observable<Gif[]> {
-    return this.http.get<GiphyResponse>(`${environment.gifapiUrlNew}/gifs/search`,{
+    return this.http.get<GiphyResponse>(`${environment.gifApiKey}/gifs/search`,{
       params:{
-        api_key:environment.gifApiKeyNew,
+        api_key:environment.gifApiKey,
         limit: 20,
         q: query,
       },
