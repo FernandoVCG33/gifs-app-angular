@@ -1,14 +1,12 @@
 import {
-  asNativeElements,
-  ChangeDetectionStrategy,
   Component,
-  computed,
   ElementRef,
   inject,
   viewChild
 } from '@angular/core';
 //import {GifList} from '../../componentes/list/gif-list/gif-list';
 import {GifService} from '../../services/gifs.service';
+import {ScrollStateService} from '../../services/scroll-state.service';
 @Component({
   selector: 'app-trending-page',
   templateUrl: './trending-page.html',
@@ -18,6 +16,7 @@ import {GifService} from '../../services/gifs.service';
 })
 export default class TrendingPage {
   //decalrar en una nueva variable el array
+    scrollStateService= inject(ScrollStateService);
     gifsService= inject(GifService);
     scrollDivRef= viewChild<ElementRef<HTMLDivElement>>('gropupDiv');
     onScroll(event: Event){
@@ -27,6 +26,10 @@ export default class TrendingPage {
         const clientheight = scrollDiv.clientHeight;
         const scrollHeight=scrollDiv.scrollHeight;
         const isABoton= scrolTop+ clientheight + 300 >= scrollHeight;
-        console.log({isABoton});
+        //console.log({isABoton});
+        this.scrollStateService.trendingScrolState.set(scrolTop);
+        if (isABoton){
+          this.gifsService.loadTrendingGifs();
+        }
     }
 }

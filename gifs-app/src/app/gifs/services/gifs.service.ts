@@ -18,8 +18,10 @@ export  class GifService {
   private http=inject(HttpClient);
 
   trendingGifs=signal<Gif[]>([])
-  trendingGifsLoandong=signal(true);
+  trendingGifsLoandong=signal(false);
   searcHistory= signal<Record<string, Gif[]>>(loadFromLS());
+  private trendingPage=signal(0);
+
   trendingGifGroup=computed<Gif[][]>(()=>{
       const groups=[];
       for (let i=0 ; i<this.trendingGifs().length; i+=3 ){
@@ -42,16 +44,20 @@ export  class GifService {
 
 
   loadTrendingGifs(){
+    if(this.trendingGifsLoandong()) return;
+    this.trendingGifsLoandong.set(true);
     this.http.get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`,{
       params:{
         api_key:environment.gifApiKey,
         limit: 20,
+        offset: this.trendingPage()*20,
       },
     })
       .subscribe((resp) =>{
         //console.log(resp);
         const gifs = GifMapper.mapGiphyItemsToGifArray(resp.data);
-        this.trendingGifs.set(gifs);
+        this.trendingGifs.update(currenTgifs=>[...currenTgifs, ...gifs,]);
+        this.trendingPage.update((currenValur)=>  currenValur+1);
         this.trendingGifsLoandong.set(false);
         console.log(`gifs cargados desde api`);
         //console.log( {gifs} );
