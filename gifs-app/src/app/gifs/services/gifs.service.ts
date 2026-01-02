@@ -63,29 +63,24 @@ export  class GifService {
         //console.log( {gifs} );
     } )
   }
-  searchGifs(query: string):Observable<Gif[]> {
-    return this.http.get<GiphyResponse>(`${environment.gifApiKey}/gifs/search`,{
-      params:{
-        api_key:environment.gifApiKey,
+  searchGifs(query: string): Observable<Gif[]> {
+    // ✅ CORRECCIÓN: Usa environment.giphyUrl aquí
+    return this.http.get<GiphyResponse>(`${environment.giphyUrl}/gifs/search`, {
+      params: {
+        api_key: environment.gifApiKey, // La API KEY va aquí, en los params
         limit: 20,
         q: query,
       },
     }).pipe(
-      map(({data})  => data ),
-      map((items)  => GifMapper.mapGiphyItemsToGifArray(items)),
-      tap(items =>{ this.searcHistory.update((history) =>
-          ({
-            ...history,
-            [query.toLowerCase()]: items,
+      map(({ data }) => data),
+      map((items) => GifMapper.mapGiphyItemsToGifArray(items)),
+      tap(items => {
+        this.searcHistory.update((history) => ({
+          ...history,
+          [query.toLowerCase()]: items,
         }));
       })
     );
-     // .subscribe((resp) =>{
-     //   const gifsR = resp.data;
-     //   //this.trendingGifs.set(gifsR);
-     //   console.log( {seach : gifsR });
-     //   return gifsR;
-     // })
   }
   getHistoriesKeys(query: string){
       return this.searcHistory()[query] ?? [];
