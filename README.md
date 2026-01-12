@@ -7,9 +7,14 @@ el objetivo de este proyecto el  cual esta hecho en angular es poder conocer el 
 
 * src
 * app
-  * Sub-elemento A (con tecla Tab o 2 espacios antes)
-  * Sub-elemento B
-    * Detalle profundo
+  * gifs
+    * components
+    * interfaces
+    * mapper
+    * pages
+    * services
+      *ts
+      *ts
 * enviroments
   -enviroments.ts
   -enviroments.development.ts
