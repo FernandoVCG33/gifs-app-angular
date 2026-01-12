@@ -9,6 +9,18 @@ el objetivo de este proyecto el  cual esta hecho en angular es poder conocer el 
 * app
   * gifs
     * components
+      * gifs-side-menu-header
+        * html
+        * ts
+      * gifs-side-menu-options
+        * html
+        * ts
+      * gifs-side-menu
+        * html
+        * ts
+      * list/gif-lis
+        * html
+        * ts
     * interfaces
     * mapper
       * ts
