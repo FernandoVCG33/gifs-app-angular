@@ -1,48 +1,40 @@
-# gifs-app-angular
-En el siguiente repositorio se almacenará un proyecto hecho en angular el cual consiste en un La aplicación de gifs.
-## Objetivo
-el objetivo de este proyecto el  cual esta hecho en angular es poder conocer el uso de las apis, almacenamiento en local storage, peticiones http, uso de mapper y estructura de directorios
+# 📱 Gifs App - Angular
 
-### la estructura del protecto es la siguientes
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Giphy API](https://img.shields.io/badge/API-Giphy-lightgrey?style=for-the-badge)
 
-* src
-* app
-  * gifs
-    * components
-      * gifs-side-menu-header
-        * html
-        * ts
-      * gifs-side-menu-options
-        * html
-        * ts
-      * gifs-side-menu
-        * html
-        * ts
-      * list/gif-lis
-        * html
-        * ts
-        * gif-list-item
-          * html
-          * ts
-    * interfaces
-    * mapper
-      * ts
-    * pages
-      * dashboard-page
-        * html
-        * ts
-      * gif-history
-        * html
-        * ts
-      * search-page
-        * html
-        * ts
-      * treanding-page
-        *html
-        ts
-    * services
-      * ts
-      * ts
-* enviroments
-  -enviroments.ts
-  -enviroments.development.ts
+Una aplicación web interactiva desarrollada en Angular para la búsqueda y visualización de Gifs animados. Este proyecto demuestra la implementación de una arquitectura modular y el manejo eficiente de datos externos.
+
+## 🎯 Objetivos del Proyecto
+
+El propósito principal es consolidar conocimientos avanzados de Angular, enfocándose en:
+
+* **Consumo de APIs:** Conexión con servicios externos (Giphy API) mediante `HttpClient`.
+* **Persistencia de Datos:** Uso de `localStorage` para mantener el historial de búsquedas del usuario.
+* **Arquitectura Limpia:** Implementación del patrón **Mapper** para transformar la data de la API a interfaces propias.
+* **Estructura Modular:** Organización profesional de directorios y componentes.
+
+## 📂 Estructura de Directorios
+
+El proyecto sigue una estructura semántica donde la lógica de negocio está separada de la presentación:
+
+```text
+src/
+├── app/
+│   ├── gifs/
+│   │   ├── components/
+│   │   │   ├── gifs-side-menu/       # Menú lateral de navegación
+│   │   │   ├── gifs-side-menu-header # Cabecera del menú
+│   │   │   ├── gifs-side-menu-options# Opciones de navegación
+│   │   │   └── gif-list/             # Listado y tarjetas de gifs
+│   │   ├── pages/
+│   │   │   ├── dashboard-page/       # Página principal
+│   │   │   ├── gif-history/          # Historial de búsquedas
+│   │   │   ├── search-page/          # Buscador principal
+│   │   │   └── trending-page/        # Gifs en tendencia
+│   │   ├── services/                 # Lógica de llamadas HTTP
+│   │   ├── interfaces/               # Tipado estricto de datos
+│   │   └── mapper/                   # Transformación de datos API -> App
+│   └── shared/
+└── environments/                     # Variables de entorno (API Keys)
