@@ -11,10 +11,11 @@ el objetivo de este proyecto el  cual esta hecho en angular es poder conocer el 
     * components
     * interfaces
     * mapper
+      * ts
     * pages
     * services
-      *ts
-      *ts
+      * ts
+      * ts
 * enviroments
   -enviroments.ts
   -enviroments.development.ts
