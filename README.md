@@ -50,3 +50,26 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 git clone [https://github.com/tu-usuario/nombre-del-repo.git](https://github.com/tu-usuario/nombre-del-repo.git)
 cd nombre-del-repo
 ```
+### 2. Instalar dependencias
+Instala las librerías necesarias de Node.js:
+```bash
+npm install
+```
+### 3. Configurar Variables de Entorno (API Key)
+
+Este proyecto consume la API de Giphy. Necesitas obtener una API Key gratuita en Giphy Developers y configurarla.
+
+Abre el archivo src/environments/environments.development.ts y agrega tu llave:
+```TypeScript
+export const environment = {
+  production: false,
+  giphyApiKey: 'PEGA_TU_API_KEY_AQUI'
+};
+```
+###4. Ejecutar el servidor de desarrollo
+Inicia la aplicación y abre el navegador automáticamente:
+```Bash
+ng serve -o
+```
+La aplicación correrá en http://localhost:4200/.
+⌨️ con ❤️ por Fernando Vidal
