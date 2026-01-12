@@ -21,10 +21,25 @@ el objetivo de este proyecto el  cual esta hecho en angular es poder conocer el 
       * list/gif-lis
         * html
         * ts
+        * gif-list-item
+          * html
+          * ts
     * interfaces
     * mapper
       * ts
     * pages
+      * dashboard-page
+        * html
+        * ts
+      * gif-history
+        * html
+        * ts
+      * search-page
+        * html
+        * ts
+      * treanding-page
+        *html
+        ts
     * services
       * ts
       * ts
