@@ -19,6 +19,7 @@ El propósito principal es consolidar conocimientos avanzados de Angular, enfoc�
 
 El proyecto sigue una estructura semántica donde la lógica de negocio está separada de la presentación:
 
+
 ```text
 src/
 ├── app/
@@ -38,3 +39,14 @@ src/
 │   │   └── mapper/                   # Transformación de datos API -> App
 │   └── shared/
 └── environments/                     # Variables de entorno (API Keys)
+```
+## 🚀 Instalación y Uso
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+### 1. Clonar el repositorio
+
+```bash
+git clone [https://github.com/tu-usuario/nombre-del-repo.git](https://github.com/tu-usuario/nombre-del-repo.git)
+cd nombre-del-repo
+```
