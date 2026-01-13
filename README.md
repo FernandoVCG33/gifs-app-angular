@@ -66,7 +66,7 @@ export const environment = {
   giphyApiKey: 'PEGA_TU_API_KEY_AQUI'
 };
 ```
-###4. Ejecutar el servidor de desarrollo
+### 4. Ejecutar el servidor de desarrollo
 Inicia la aplicación y abre el navegador automáticamente:
 ```Bash
 ng serve -o
